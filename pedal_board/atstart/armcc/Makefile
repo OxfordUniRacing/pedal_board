@@ -28,6 +28,7 @@ endif
 SUB_DIRS +=  \
  \
 hpl/adc \
+hpl/tc \
 hpl/osc32kctrl \
 hpl/can \
 hpl/dmac \
@@ -66,7 +67,7 @@ main.o \
 hpl/osc32kctrl/hpl_osc32kctrl.o \
 examples/driver_examples.o \
 driver_init.o \
-hal/src/hal_adc_sync.o \
+hpl/tc/tc_lite.o \
 samc21/armcc/Device/SAMC21/Source/system_samc21.o \
 hpl/sercom/hpl_sercom.o \
 hal/src/hal_gpio.o \
@@ -75,6 +76,7 @@ hal/utils/src/utils_event.o \
 hal/src/hal_sleep.o \
 atmel_start.o \
 hal/src/hal_atomic.o \
+hal/src/hal_adc_sync.o \
 hpl/adc/hpl_adc.o
 
 OBJS_AS_ARGS +=  \
@@ -98,7 +100,7 @@ OBJS_AS_ARGS +=  \
 "hpl/osc32kctrl/hpl_osc32kctrl.o" \
 "examples/driver_examples.o" \
 "driver_init.o" \
-"hal/src/hal_adc_sync.o" \
+"hpl/tc/tc_lite.o" \
 "samc21/armcc/Device/SAMC21/Source/system_samc21.o" \
 "hpl/sercom/hpl_sercom.o" \
 "hal/src/hal_gpio.o" \
@@ -107,6 +109,7 @@ OBJS_AS_ARGS +=  \
 "hal/src/hal_sleep.o" \
 "atmel_start.o" \
 "hal/src/hal_atomic.o" \
+"hal/src/hal_adc_sync.o" \
 "hpl/adc/hpl_adc.o"
 
 # List the dependency files
@@ -142,7 +145,8 @@ DEPS_AS_ARGS +=  \
 "hal/src/hal_atomic.d" \
 "hpl/oscctrl/hpl_oscctrl.d" \
 "hpl/adc/hpl_adc.d" \
-"atmel_start.d"
+"atmel_start.d" \
+"hpl/tc/tc_lite.d"
 
 OUTPUT_FILE_NAME :=AtmelStart
 QUOTE := "
@@ -178,7 +182,7 @@ $(OBJS_AS_ARGS)
 	@echo Building file: $<
 	@echo ARMCC Compiler
 	$(QUOTE)armcc$(QUOTE) --c99 -c -DDEBUG -O1 -g --apcs=interwork --split_sections --cpu Cortex-M0+ -D__SAMC21J18A__ \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
+-I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hpl/tc" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
 --depend "$@"  -o "$@" "$<"
 
 	@echo Finished building: $<
@@ -187,7 +191,7 @@ $(OBJS_AS_ARGS)
 	@echo Building file: $<
 	@echo ARMCC Assembler
 	$(QUOTE)armasm$(QUOTE) -g --apcs=interwork --cpu Cortex-M0+ --pd "D__SAMC21J18A__ SETA 1" \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
+-I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hpl/tc" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
 --depend "$(@:%.o=%.d)" -o "$@" "$<"
 
 	@echo Finished building: $<
@@ -196,7 +200,7 @@ $(OBJS_AS_ARGS)
 	@echo Building file: $<
 	@echo ARMCC Preprocessing Assembler
 	$(QUOTE)armcc$(QUOTE) --c99 -c -DDEBUG -O1 -g --apcs=interwork --split_sections --cpu Cortex-M0+ -D__SAMC21J18A__ \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
+-I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hpl/tc" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
 --depend "$@"  -o "$@" "$<"
 
 	@echo Finished building: $<

@@ -46,7 +46,7 @@
 // <i> These bits define the ADC clock relative to the peripheral clock (PRESCALER)
 // <id> adc_prescaler
 #ifndef CONF_ADC_1_PRESCALER
-#define CONF_ADC_1_PRESCALER 0x1
+#define CONF_ADC_1_PRESCALER 0x4
 #endif
 
 // <q> Free Running Mode
@@ -83,7 +83,7 @@
 // <i> These bits define the Mux selection for the positive ADC input. (MUXPOS)
 // <id> adc_pinmux_positive
 #ifndef CONF_ADC_1_MUXPOS
-#define CONF_ADC_1_MUXPOS 0x19
+#define CONF_ADC_1_MUXPOS 0x0
 #endif
 
 // <o> Negative Mux Input Selection
@@ -129,7 +129,7 @@
 // <i> This bit enable R2R operation (R2R)
 // <id> adc_arch_r2r
 #ifndef CONF_ADC_1_R2R
-#define CONF_ADC_1_R2R 0
+#define CONF_ADC_1_R2R 1
 #endif
 
 // <q> Run in standby
@@ -143,7 +143,7 @@
 // <i> If enabled, the ADC is running if the CPU is halted by an external debugger. (DBGRUN)
 // <id> adc_arch_dbgrun
 #ifndef CONF_ADC_1_DBGRUN
-#define CONF_ADC_1_DBGRUN 0
+#define CONF_ADC_1_DBGRUN 1
 #endif
 
 // <q> On Demand Control
@@ -171,7 +171,7 @@
 // <i> This bit indicates whether the Comparator Offset Compensation is enabled or not (OFFCOMP)
 // <id> adc_arch_offcomp
 #ifndef CONF_ADC_1_OFFCOMP
-#define CONF_ADC_1_OFFCOMP 0
+#define CONF_ADC_1_OFFCOMP 1
 #endif
 
 // <q> Digital Correction Logic Enabled
@@ -199,7 +199,7 @@
 // <i> These bits define the division coefficient in 2n steps. (ADJRES)
 // <id> adc_arch_adjres
 #ifndef CONF_ADC_1_ADJRES
-#define CONF_ADC_1_ADJRES 0x0
+#define CONF_ADC_1_ADJRES 0x4
 #endif
 
 // <o.0..10> Number of Samples to be Collected
@@ -217,14 +217,14 @@
 // <i> Define how many samples should be added together.The result will be available in the Result register (SAMPLENUM)
 // <id> adc_arch_samplenum
 #ifndef CONF_ADC_1_SAMPLENUM
-#define CONF_ADC_1_SAMPLENUM 0x0
+#define CONF_ADC_1_SAMPLENUM 0x8
 #endif
 
 // <o> Sampling Time Length <0-63>
 // <i> These bits control the ADC sampling time in number of half CLK_ADC cycles, depending of the prescaler value, thus controlling the ADC input impedance. (SAMPLEN)
 // <id> adc_arch_samplen
 #ifndef CONF_ADC_1_SAMPLEN
-#define CONF_ADC_1_SAMPLEN 15
+#define CONF_ADC_1_SAMPLEN 0
 #endif
 
 // <o> Window Monitor Mode

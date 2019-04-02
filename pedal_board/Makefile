@@ -47,8 +47,8 @@ atstart/config \
 atstart \
 .
 
-OUT_DIRS := $(SRC_DIRS:%=$(BUILD_DIR)/%)
 SRCS := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
+SRCS := $(filter-out atstart/main.c,$(SRCS))
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 INCS := $(INC_DIRS:%=-I%)
@@ -67,10 +67,7 @@ Q := @
 NULL := 2>/dev/null
 endif
 
-all: $(OUT_DIRS) $(BUILD_DIR)/$(OUTPUT_FILE_NAME).elf
-
-$(OUT_DIRS):
-	$(Q)"mkdir" -p $(@)
+all: directories $(BUILD_DIR)/$(OUTPUT_FILE_NAME).elf
 
 $(BUILD_DIR)/%.o: %.c
 	@printf "  CC      $(<)\n"
@@ -87,7 +84,10 @@ clean:
 	@printf "  CLEAN\n"
 	$(Q)rm -rf $(BUILD_DIR)
 
-.PHONY: all clean
+directories:
+	$(Q)"mkdir" -p $(SRC_DIRS:%=$(BUILD_DIR)/%)
+
+.PHONY: all clean directories
 .SECONDARY:
 
 -include $(DEPS)

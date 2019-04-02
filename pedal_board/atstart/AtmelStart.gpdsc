@@ -92,6 +92,7 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/utils/src/utils_list.c"/>
         <file category="source" condition="GCC" name="hal/utils/src/utils_syscalls.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/divas/hpl_divas.c"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="hpl/doc_lite/tc.rst"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_ac_c21.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_adc_c21.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_c21.h"/>
@@ -167,6 +168,8 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="hpl/pm/hpl_pm_base.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hpl/port/hpl_gpio_base.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/sercom/hpl_sercom.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/tc/tc_lite.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hpl/tc/tc_lite.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="atmel_start.c"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_adc_config.h"/>
@@ -196,6 +199,7 @@
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/pm"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/port"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/sercom"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="hpl/tc"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hri"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
       </files>

@@ -23,34 +23,29 @@ void ADC_1_PORT_init(void)
 {
 
 	// Disable digital pin circuitry
-	gpio_set_pin_direction(THROTTLE_SENSE_2, GPIO_DIRECTION_OFF);
+	gpio_set_pin_direction(PB08, GPIO_DIRECTION_OFF);
 
-	gpio_set_pin_function(THROTTLE_SENSE_2, PINMUX_PB08B_ADC1_AIN4);
-
-	// Disable digital pin circuitry
-	gpio_set_pin_direction(THROTTLE_SENSE_1, GPIO_DIRECTION_OFF);
-
-	gpio_set_pin_function(THROTTLE_SENSE_1, PINMUX_PB09B_ADC1_AIN5);
+	gpio_set_pin_function(PB08, PINMUX_PB08B_ADC1_AIN4);
 
 	// Disable digital pin circuitry
-	gpio_set_pin_direction(STEERING_WHEEL_SENSE, GPIO_DIRECTION_OFF);
+	gpio_set_pin_direction(PB09, GPIO_DIRECTION_OFF);
 
-	gpio_set_pin_function(STEERING_WHEEL_SENSE, PINMUX_PB06B_ADC1_AIN8);
-
-	// Disable digital pin circuitry
-	gpio_set_pin_direction(BRAKE_POS_SENSE, GPIO_DIRECTION_OFF);
-
-	gpio_set_pin_function(BRAKE_POS_SENSE, PINMUX_PB07B_ADC1_AIN9);
+	gpio_set_pin_function(PB09, PINMUX_PB09B_ADC1_AIN5);
 
 	// Disable digital pin circuitry
-	gpio_set_pin_direction(BRAKE_PRESSURE_SENSE, GPIO_DIRECTION_OFF);
+	gpio_set_pin_direction(PB06, GPIO_DIRECTION_OFF);
 
-	gpio_set_pin_function(BRAKE_PRESSURE_SENSE, PINMUX_PA08B_ADC1_AIN10);
+	gpio_set_pin_function(PB06, PINMUX_PB06B_ADC1_AIN8);
 
 	// Disable digital pin circuitry
-	gpio_set_pin_direction(PA09, GPIO_DIRECTION_OFF);
+	gpio_set_pin_direction(PB07, GPIO_DIRECTION_OFF);
 
-	gpio_set_pin_function(PA09, PINMUX_PA09B_ADC1_AIN11);
+	gpio_set_pin_function(PB07, PINMUX_PB07B_ADC1_AIN9);
+
+	// Disable digital pin circuitry
+	gpio_set_pin_direction(PA08, GPIO_DIRECTION_OFF);
+
+	gpio_set_pin_function(PA08, PINMUX_PA08B_ADC1_AIN10);
 }
 
 void ADC_1_CLOCK_init(void)
@@ -86,6 +81,12 @@ void UART_EDBG_init(void)
 	UART_EDBG_CLOCK_init();
 	usart_sync_init(&UART_EDBG, SERCOM4, (void *)NULL);
 	UART_EDBG_PORT_init();
+}
+
+void TIMER_0_CLOCK_init(void)
+{
+	hri_mclk_set_APBCMASK_TC0_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TC0_GCLK_ID, CONF_GCLK_TC0_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 }
 
 void CAN_0_PORT_init(void)
@@ -144,5 +145,9 @@ void system_init(void)
 	ADC_1_init();
 
 	UART_EDBG_init();
+
+	TIMER_0_CLOCK_init();
+
+	TIMER_0_init();
 	CAN_0_init();
 }

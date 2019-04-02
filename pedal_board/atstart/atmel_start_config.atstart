@@ -22,9 +22,9 @@ drivers:
     api: HAL:Driver:ADC_Sync
     configuration:
       adc_advanced_settings: true
-      adc_arch_adjres: 0
+      adc_arch_adjres: 4
       adc_arch_corren: false
-      adc_arch_dbgrun: false
+      adc_arch_dbgrun: true
       adc_arch_dualsel: BOTH
       adc_arch_event_settings: false
       adc_arch_flushei: false
@@ -38,8 +38,8 @@ drivers:
       adc_arch_refcomp: false
       adc_arch_resrdyeo: false
       adc_arch_runstdby: false
-      adc_arch_samplen: 15
-      adc_arch_samplenum: 1 sample
+      adc_arch_samplen: 0
+      adc_arch_samplenum: 256 samples
       adc_arch_seqen: 0
       adc_arch_slaveen: false
       adc_arch_startei: false
@@ -51,9 +51,9 @@ drivers:
       adc_differential_mode: false
       adc_freerunning_mode: false
       adc_pinmux_negative: Internal ground
-      adc_pinmux_positive: Bandgap voltage
-      adc_prescaler: Peripheral clock divided by 4
-      adc_reference: VDDANA
+      adc_pinmux_positive: ADC AIN0 pin
+      adc_prescaler: Peripheral clock divided by 32
+      adc_reference: Internal bandgap reference
       adc_resolution: 12-bit
     optional_signals:
     - identifier: ADC_1:AIN/4
@@ -91,13 +91,6 @@ drivers:
       definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::optional_signal_definition::ADC1.AIN.10
       name: ADC1/AIN/10
       label: AIN/10
-    - identifier: ADC_1:AIN/11
-      pad: PA09
-      mode: Enabled
-      configuration: null
-      definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::optional_signal_definition::ADC1.AIN.11
-      name: ADC1/AIN/11
-      label: AIN/11
     variant: null
     clocks:
       domain_group:
@@ -417,7 +410,7 @@ drivers:
       enable_gclk_gen_1: false
       enable_gclk_gen_2: false
       enable_gclk_gen_3: false
-      enable_gclk_gen_4: false
+      enable_gclk_gen_4: true
       enable_gclk_gen_5: false
       enable_gclk_gen_6: false
       enable_gclk_gen_7: false
@@ -441,7 +434,7 @@ drivers:
       gclk_arch_gen_3_oe: false
       gclk_arch_gen_3_oov: false
       gclk_arch_gen_3_runstdby: false
-      gclk_arch_gen_4_enable: false
+      gclk_arch_gen_4_enable: true
       gclk_arch_gen_4_idc: false
       gclk_arch_gen_4_oe: false
       gclk_arch_gen_4_oov: false
@@ -466,16 +459,16 @@ drivers:
       gclk_gen_0_oscillator: Fractional Digital Phase Locked Loop (FDPLL96M)
       gclk_gen_1_div: 1
       gclk_gen_1_div_sel: false
-      gclk_gen_1_oscillator: 48MHz Internal Oscillator (OSC48M)
+      gclk_gen_1_oscillator: External Crystal Oscillator 0.4-32MHz (XOSC)
       gclk_gen_2_div: 1
       gclk_gen_2_div_sel: false
       gclk_gen_2_oscillator: External Crystal Oscillator 0.4-32MHz (XOSC)
       gclk_gen_3_div: 1
       gclk_gen_3_div_sel: false
-      gclk_gen_3_oscillator: Fractional Digital Phase Locked Loop (FDPLL96M)
+      gclk_gen_3_oscillator: External Crystal Oscillator 0.4-32MHz (XOSC)
       gclk_gen_4_div: 1
       gclk_gen_4_div_sel: false
-      gclk_gen_4_oscillator: External Crystal Oscillator 0.4-32MHz (XOSC)
+      gclk_gen_4_oscillator: 32kHz External Crystal Oscillator (XOSC32K)
       gclk_gen_5_div: 1
       gclk_gen_5_div_sel: false
       gclk_gen_5_oscillator: External Crystal Oscillator 0.4-32MHz (XOSC)
@@ -674,6 +667,66 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 0
           slow_gclk_selection: Generic clock generator 0
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::TC0::driver_config_definition::8-bit.Counter.Mode::Lite:TC:Timer
+    functionality: Timer
+    api: Lite:TC:Timer
+    configuration:
+      cc_cc0: 0
+      cc_cc1: 0
+      cc_control: false
+      count_control: false
+      count_count: 0
+      ctrla_alock: false
+      ctrla_capten0: false
+      ctrla_capten1: false
+      ctrla_control: true
+      ctrla_copen0: false
+      ctrla_copen1: false
+      ctrla_enable: true
+      ctrla_mode: 1
+      ctrla_ondemand: false
+      ctrla_prescaler: DIV8
+      ctrla_prescsync: GCLK
+      ctrla_runstdby: false
+      ctrlbset_cmd: NONE
+      ctrlbset_control: false
+      ctrlbset_dir: false
+      ctrlbset_lupd: false
+      ctrlbset_oneshot: false
+      ctrlc_inven0: false
+      ctrlc_inven1: false
+      dbgctrl_control: false
+      dbgctrl_dbgrun: false
+      drvctrl_control: false
+      evctrl_control: false
+      evctrl_evact: 'OFF'
+      evctrl_mceo0: false
+      evctrl_mceo1: false
+      evctrl_ovfeo: false
+      evctrl_tcei: false
+      evctrl_tcinv: false
+      intenset_control: false
+      intenset_err: false
+      intenset_mc0: false
+      intenset_mc1: false
+      intenset_ovf: false
+      per_control: true
+      per_per: 41
+      wave_control: false
+      wave_wavegen: NFRQ
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC
+          input: Generic clock generator 4
+          external: false
+          external_frequency: 0
+        configuration:
+          tc_gclk_selection: Generic clock generator 4
   CAN_0:
     user_label: CAN_0
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::CAN0::driver_config_definition::CAN::HAL:Driver:CAN.Async
@@ -700,7 +753,7 @@ drivers:
       can_ie_ea: false
       can_ie_ep: false
       can_ie_ew: false
-      can_mrcfg_dqos: Background (no sensitive operation)
+      can_mrcfg_dqos: Sensitive latency
       can_mrcfg_runstandby: false
       can_rxesc_f0ds: 8 byte data field.
       can_rxf0c_f0om: blocking mode
@@ -739,41 +792,35 @@ drivers:
         configuration:
           can_gclk_selection: Generic clock generator 0
 pads:
-  STEERING_WHEEL_SENSE:
+  PB06:
     name: PB06
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::pad::PB06
     mode: Analog
-    user_label: STEERING_WHEEL_SENSE
+    user_label: PB06
     configuration: null
-  BRAKE_POS_SENSE:
+  PB07:
     name: PB07
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::pad::PB07
     mode: Analog
-    user_label: BRAKE_POS_SENSE
+    user_label: PB07
     configuration: null
-  THROTTLE_SENSE_2:
+  PB08:
     name: PB08
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::pad::PB08
     mode: Analog
-    user_label: THROTTLE_SENSE_2
+    user_label: PB08
     configuration: null
-  THROTTLE_SENSE_1:
+  PB09:
     name: PB09
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::pad::PB09
     mode: Analog
-    user_label: THROTTLE_SENSE_1
+    user_label: PB09
     configuration: null
-  BRAKE_PRESSURE_SENSE:
+  PA08:
     name: PA08
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::pad::PA08
     mode: Analog
-    user_label: BRAKE_PRESSURE_SENSE
-    configuration: null
-  PA09:
-    name: PA09
-    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21J18A-AN::pad::PA09
-    mode: Analog
-    user_label: PA09
+    user_label: PA08
     configuration: null
   PB10:
     name: PB10

@@ -27,6 +27,7 @@ endif
 SUB_DIRS +=  \
  \
 hpl/adc \
+hpl/tc \
 hpl/osc32kctrl \
 hpl/can \
 samc21/gcc/gcc \
@@ -67,7 +68,7 @@ main.o \
 hpl/osc32kctrl/hpl_osc32kctrl.o \
 examples/driver_examples.o \
 driver_init.o \
-hal/src/hal_adc_sync.o \
+hpl/tc/tc_lite.o \
 hpl/sercom/hpl_sercom.o \
 hal/src/hal_gpio.o \
 hpl/divas/hpl_divas.o \
@@ -75,6 +76,7 @@ hal/utils/src/utils_event.o \
 hal/src/hal_sleep.o \
 atmel_start.o \
 hal/src/hal_atomic.o \
+hal/src/hal_adc_sync.o \
 hpl/adc/hpl_adc.o
 
 OBJS_AS_ARGS +=  \
@@ -100,7 +102,7 @@ OBJS_AS_ARGS +=  \
 "hpl/osc32kctrl/hpl_osc32kctrl.o" \
 "examples/driver_examples.o" \
 "driver_init.o" \
-"hal/src/hal_adc_sync.o" \
+"hpl/tc/tc_lite.o" \
 "hpl/sercom/hpl_sercom.o" \
 "hal/src/hal_gpio.o" \
 "hpl/divas/hpl_divas.o" \
@@ -108,6 +110,7 @@ OBJS_AS_ARGS +=  \
 "hal/src/hal_sleep.o" \
 "atmel_start.o" \
 "hal/src/hal_atomic.o" \
+"hal/src/hal_adc_sync.o" \
 "hpl/adc/hpl_adc.o"
 
 # List the dependency files
@@ -144,7 +147,8 @@ DEPS_AS_ARGS +=  \
 "hal/src/hal_atomic.d" \
 "hpl/oscctrl/hpl_oscctrl.d" \
 "hpl/adc/hpl_adc.d" \
-"atmel_start.d"
+"atmel_start.d" \
+"hpl/tc/tc_lite.d"
 
 OUTPUT_FILE_NAME :=AtmelStart
 QUOTE := "
@@ -191,7 +195,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 	@echo ARM/GNU C Compiler
 	$(QUOTE)arm-none-eabi-gcc$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 -Wall -c -std=gnu99 \
 -D__SAMC21J18A__ -mcpu=cortex-m0plus  \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
+-I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hpl/tc" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -o "$@" "$<"
 	@echo Finished building: $<
 
@@ -200,7 +204,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 	@echo ARM/GNU Assembler
 	$(QUOTE)arm-none-eabi-as$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 -Wall -c -std=gnu99 \
 -D__SAMC21J18A__ -mcpu=cortex-m0plus  \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
+-I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hpl/tc" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -o "$@" "$<"
 	@echo Finished building: $<
 
@@ -209,7 +213,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 	@echo ARM/GNU Preprocessing Assembler
 	$(QUOTE)arm-none-eabi-gcc$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 -Wall -c -std=gnu99 \
 -D__SAMC21J18A__ -mcpu=cortex-m0plus  \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
+-I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/can" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hpl/tc" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../samc21/include"  \
 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -o "$@" "$<"
 	@echo Finished building: $<
 

@@ -38,7 +38,7 @@
 // <3=> Critical latency
 // <id> can_mrcfg_dqos
 #ifndef CONF_CAN0_MRCFG_DQOS
-#define CONF_CAN0_MRCFG_DQOS 0
+#define CONF_CAN0_MRCFG_DQOS 2
 #endif
 
 // </h>

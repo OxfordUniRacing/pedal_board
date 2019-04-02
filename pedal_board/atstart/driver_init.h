@@ -24,6 +24,7 @@ extern "C" {
 #include <hal_adc_sync.h>
 
 #include <hal_usart_sync.h>
+#include <tc_lite.h>
 #include <hal_can_async.h>
 
 extern struct adc_sync_descriptor ADC_1;
@@ -38,6 +39,10 @@ void ADC_1_init(void);
 void UART_EDBG_PORT_init(void);
 void UART_EDBG_CLOCK_init(void);
 void UART_EDBG_init(void);
+
+void TIMER_0_CLOCK_init(void);
+
+int8_t TIMER_0_init(void);
 
 /**
  * \brief Perform system initialization, initialize pins and clocks for
