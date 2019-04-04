@@ -2,10 +2,26 @@
 
 Work in progress
 
-## What it (is supposed to) do
+## Overview
 
-Sample sensors continously
+Every 10ms take readings of each sensor and send a message of the raw readings on the CAN bus.  
+Each reading is an average of 256 adc samples.  
 
-Average readings
+## CAN messages
 
-Transmit readings on can bus at a fixed frequency
+Send:
+
+- Sensor readings (id & format TBD)
+
+Receive:
+
+None
+
+## Bugs
+
+- Sampling frequency is wrong  
+
+## Todo
+
+- CAN network congestion back-off
+- Safe mode
