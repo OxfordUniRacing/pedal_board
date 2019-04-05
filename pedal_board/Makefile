@@ -3,28 +3,39 @@ OUTPUT_FILE_NAME = pedal_board
 
 # Flags for debug and release builds
 ifndef RELEASE
-	CFLAGS += -g3 -O0
+	CFLAGS += -ggdb3 -O0
 	DEFS += -DDEBUG
 	BUILD_DIR ?= Debug
 else
-	CFLAGS += -g3 -O2 -flto
-	LDFLAGS += -flto
+	CFLAGS += -ggdb3 -O2
+	DEFS += -DRELEASE
 	BUILD_DIR ?= Release
 endif
 
 # Compile flags
-CFLAGS += -Wall -Wextra
-CFLAGS += -Wmissing-prototypes -Wstrict-prototypes
-CFLAGS += -fno-common -ffunction-sections -std=gnu99
 CPPFLAGS += -MD -MP
-LDFLAGS += --static -Wl,--gc-sections -ffunction-sections
+CFLAGS += -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes
+CFLAGS += -fno-common -ffunction-sections -fdata-sections -std=gnu99
+LDFLAGS += --static -Wl,--gc-sections
 
 # Target specific flags
+DEFS += -D__SAMC21J18A__
 ARCH_FLAGS := -mthumb -mcpu=cortex-m0plus
 LDFLAGS += -Tstartup/samc21j18a_flash.ld
-DEFS += -D__SAMC21J18A__
 
 subdirs = $(patsubst %/,%,$(filter %/,$(wildcard $(1)/*/)))
+
+# Include directories
+INC_DIRS := \
+atstart/config \
+atstart/CMSIS/Include \
+atstart/samc21/include \
+atstart/hri \
+$(call subdirs,atstart/hpl) \
+atstart/hal/utils/include \
+atstart/hal/include \
+atstart \
+.
 
 # Source directories
 SRC_DIRS := \
@@ -35,24 +46,16 @@ atstart/hal/src \
 atstart \
 .
 
-# Include directories
-INC_DIRS := \
-atstart/CMSIS/Include \
-atstart/samc21/include \
-atstart/hri \
-$(call subdirs,atstart/hpl) \
-atstart/hal/utils/include \
-atstart/hal/include \
-atstart/config \
-atstart \
-.
+# Sources files excluded from compiling
+SRC_EXCLUDES := \
+atstart/main.c
 
+INCS := $(INC_DIRS:%=-I%)
 SRCS := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-SRCS := $(filter-out atstart/main.c,$(SRCS))
+SRCS := $(filter-out $(SRC_EXCLUDES),$(SRCS))
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
-INCS := $(INC_DIRS:%=-I%)
-CPPFLAGS += $(DEFS) $(INCS)
+OUT_DIRS := $(SRC_DIRS:%=$(BUILD_DIR)/%)
 
 PREFIX ?= arm-none-eabi-
 CC := $(PREFIX)gcc
@@ -64,30 +67,32 @@ SIZE := $(PREFIX)size
 # Be silent per default, but 'make V=1' will show all compiler calls.
 ifneq ($(V),1)
 Q := @
-NULL := 2>/dev/null
 endif
 
-all: directories $(BUILD_DIR)/$(OUTPUT_FILE_NAME).elf
+all: $(OUT_DIRS) $(BUILD_DIR)/$(OUTPUT_FILE_NAME).elf
+
+$(OUT_DIRS):
+	$(Q)"mkdir" -p $(@)
 
 $(BUILD_DIR)/%.o: %.c
 	@printf "  CC      $(<)\n"
-	$(Q)$(CC) $(CPPFLAGS) $(CFLAGS) $(ARCH_FLAGS) -o $(@) -c $(<)
+	$(Q)$(CC) $(CPPFLAGS) $(DEFS) $(INCS) $(CFLAGS) $(ARCH_FLAGS) -o $(@) -c $(<)
 
 $(BUILD_DIR)/%.elf: $(OBJS)
 	@printf "  LD      $(@)\n"
-	$(Q)$(LD) $(LDFLAGS) $(ARCH_FLAGS) -o $(@) $(^)
+	$(Q)$(LD) -o $(@) $(^) -Wl,-Map="$(BUILD_DIR)/$(*).map" $(LDFLAGS) $(ARCH_FLAGS)
+	@printf "  OBJCOPY $(*).bin\n"
 	$(Q)$(OBJCOPY) -O binary $(@) $(BUILD_DIR)/$(*).bin
+	@printf "  OBJCOPY $(*).hex\n"
 	$(Q)$(OBJCOPY) -O ihex $(@) $(BUILD_DIR)/$(*).hex
+	$(Q)$(CC) --version
 	$(Q)$(SIZE) $(@)
 
 clean:
 	@printf "  CLEAN\n"
 	$(Q)rm -rf $(BUILD_DIR)
 
-directories:
-	$(Q)"mkdir" -p $(SRC_DIRS:%=$(BUILD_DIR)/%)
-
-.PHONY: all clean directories
+.PHONY: all clean
 .SECONDARY:
 
 -include $(DEPS)
