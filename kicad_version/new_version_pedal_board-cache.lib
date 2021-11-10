@@ -1,0 +1,368 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# new_version_pedal_board-eagle-import_12V
+#
+DEF new_version_pedal_board-eagle-import_12V #SUPPLY 0 40 Y Y 1 L P
+F0 "#SUPPLY" 0 0 50 H I C CNN
+F1 "new_version_pedal_board-eagle-import_12V" 0 110 59 H V C BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 0 100 -30 50 N
+P 2 1 0 0 30 50 0 100 N
+X 12V 1 0 0 100 U 0 0 1 0 W
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_3.3V
+#
+DEF new_version_pedal_board-eagle-import_3.3V #SUPPLY 0 40 Y Y 1 L P
+F0 "#SUPPLY" 0 0 50 H I C CNN
+F1 "new_version_pedal_board-eagle-import_3.3V" 0 110 59 H V C BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 0 100 -30 50 N
+P 2 1 0 0 30 50 0 100 N
+X 3.3V 1 0 0 100 U 0 0 1 0 W
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_5V
+#
+DEF new_version_pedal_board-eagle-import_5V #SUPPLY 0 40 Y Y 1 L P
+F0 "#SUPPLY" 0 0 50 H I C CNN
+F1 "new_version_pedal_board-eagle-import_5V" 0 110 59 H V C BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 0 100 -30 50 N
+P 2 1 0 0 30 50 0 100 N
+X 5V 1 0 0 100 U 0 0 1 0 W
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_A4L-LOC
+#
+DEF new_version_pedal_board-eagle-import_A4L-LOC #FRAME 0 40 Y Y 1 L N
+F0 "#FRAME" 0 0 50 H I C CNN
+F1 "new_version_pedal_board-eagle-import_A4L-LOC" 0 0 50 H I C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+T 0 8550 600 85 0 1 0 >DRAWING_NAME Normal 0 L B
+T 0 8550 400 76 0 1 0 >LAST_DATE_TIME Normal 0 L B
+T 0 9075 200 85 0 1 0 >SHEET Normal 0 L B
+T 0 8540 195 85 0 1 0 Sheet: Normal 0 L B
+P 2 1 0 0 6350 150 6350 950 N
+P 2 1 0 0 6350 950 8475 950 N
+P 2 1 0 0 8475 350 8475 150 N
+P 2 1 0 0 8475 350 8475 550 N
+P 2 1 0 0 8475 550 8475 750 N
+P 2 1 0 0 8475 550 10100 550 N
+P 2 1 0 0 8475 750 8475 950 N
+P 2 1 0 0 8475 750 10100 750 N
+P 2 1 0 0 8475 950 10100 950 N
+P 2 1 0 0 9700 150 9700 350 N
+P 2 1 0 0 9700 350 8475 350 N
+P 2 1 0 0 9700 350 10100 350 N
+P 2 1 0 0 10100 150 10100 350 N
+P 2 1 0 0 10100 350 10100 550 N
+P 2 1 0 0 10100 550 10100 750 N
+P 2 1 0 0 10100 750 10100 950 N
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_C-US050-024X044
+#
+DEF new_version_pedal_board-eagle-import_C-US050-024X044 C 0 40 Y Y 1 L N
+F0 "C" 40 25 59 H V L BNN
+F1 "new_version_pedal_board-eagle-import_C-US050-024X044" 40 -165 59 H V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+A 0 -199 159 900 1274 1 0 10 N 0 -40 -97 -72
+A 0 -198 159 519 900 1 0 10 N 98 -73 0 -39
+P 2 1 0 0 -100 0 100 0 N
+P 2 1 0 0 0 -40 0 -100 N
+X 1 1 0 100 100 D 0 0 1 0 P
+X 2 2 0 -200 100 U 0 0 1 0 P
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_C-US050-025X075
+#
+DEF new_version_pedal_board-eagle-import_C-US050-025X075 C 0 40 Y Y 1 L N
+F0 "C" 40 25 59 H V L BNN
+F1 "new_version_pedal_board-eagle-import_C-US050-025X075" 40 -165 59 H V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+A 0 -199 159 900 1274 1 0 10 N 0 -40 -97 -72
+A 0 -198 159 519 900 1 0 10 N 98 -73 0 -39
+P 2 1 0 0 -100 0 100 0 N
+P 2 1 0 0 0 -40 0 -100 N
+X 1 1 0 100 100 D 0 0 1 0 P
+X 2 2 0 -200 100 U 0 0 1 0 P
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_D-SUB9-H2M09ST
+#
+DEF new_version_pedal_board-eagle-import_D-SUB9-H2M09ST X 0 40 Y Y 9 L N
+F0 "X" 50 -30 59 H V L BNN
+F1 "new_version_pedal_board-eagle-import_D-SUB9-H2M09ST" -100 55 59 H I L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+A 35 0 35 901 -901 1 0 10 N 35 35 35 -35
+A 35 0 35 901 -901 2 0 10 N 35 35 35 -35
+A 35 0 35 901 -901 3 0 10 N 35 35 35 -35
+A 35 0 35 901 -901 4 0 10 N 35 35 35 -35
+A 35 0 35 901 -901 5 0 10 N 35 35 35 -35
+A 35 0 35 901 -901 6 0 10 N 35 35 35 -35
+A 35 0 35 901 -901 7 0 10 N 35 35 35 -35
+A 35 0 35 901 -901 8 0 10 N 35 35 35 -35
+A 35 0 35 901 -901 9 0 10 N 35 35 35 -35
+X F 1 -100 0 100 R 0 0 1 0 P
+X F 2 -100 0 100 R 0 0 2 0 P
+X F 3 -100 0 100 R 0 0 3 0 P
+X F 4 -100 0 100 R 0 0 4 0 P
+X F 5 -100 0 100 R 0 0 5 0 P
+X F 6 -100 0 100 R 0 0 6 0 P
+X F 7 -100 0 100 R 0 0 7 0 P
+X F 8 -100 0 100 R 0 0 8 0 P
+X F 9 -100 0 100 R 0 0 9 0 P
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_FUSE
+#
+DEF new_version_pedal_board-eagle-import_FUSE F 0 40 Y Y 1 L N
+F0 "F" -200 100 59 H V L BNN
+F1 "new_version_pedal_board-eagle-import_FUSE" -200 -150 59 H V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+A -120 37 30 437 900 1 0 10 N -98 58 -120 68
+A -118 38 30 938 1390 1 0 10 N -120 68 -141 58
+A 16 -50 20 -843 -228 1 0 10 N 18 -70 35 -58
+A 16 -49 19 -1480 -843 1 0 10 N 0 -59 18 -69
+P 2 1 0 0 -200 0 -140 60 N
+P 2 1 0 0 0 -60 -100 60 N
+P 2 1 0 0 35 -59 98 0 N
+X 1 1 -300 0 100 R 0 0 1 0 P I
+X 2 2 200 0 100 L 0 0 1 0 P I
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_GND
+#
+DEF new_version_pedal_board-eagle-import_GND #GND 0 40 Y Y 1 L P
+F0 "#GND" 0 0 50 H I C CNN
+F1 "new_version_pedal_board-eagle-import_GND" 0 -10 59 H V C TNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 -75 0 75 0 N
+X GND 1 0 100 100 D 0 0 1 0 W
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_LED3MM
+#
+DEF new_version_pedal_board-eagle-import_LED3MM LED 0 40 Y Y 1 L N
+F0 "LED" 140 -180 59 V V L BNN
+F1 "new_version_pedal_board-eagle-import_LED3MM" 225 -180 59 V V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 -80 -30 -135 -85 N
+P 2 1 0 0 -75 -75 -130 -130 N
+P 2 1 0 0 0 -100 -50 -100 N
+P 2 1 0 0 0 -100 -50 0 N
+P 2 1 0 0 0 0 -50 0 N
+P 2 1 0 0 0 0 0 -100 N
+P 2 1 0 0 50 -100 0 -100 N
+P 2 1 0 0 50 0 0 -100 N
+P 2 1 0 0 50 0 0 0 N
+P 3 1 0 0 -135 -85 -120 -50 -100 -70 F
+P 3 1 0 0 -130 -130 -115 -95 -95 -115 F
+X A A 0 100 100 D 0 0 1 0 P
+X C K 0 -200 100 U 0 0 1 0 P
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_LM317TS
+#
+DEF new_version_pedal_board-eagle-import_LM317TS IC 0 40 Y Y 1 L N
+F0 "IC" 100 -300 59 H V L BNN
+F1 "new_version_pedal_board-eagle-import_LM317TS" 100 -400 59 H V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+T 0 -80 -170 51 0 1 0 ADJ Normal 0 L B
+T 0 -175 -25 51 0 1 0 IN Normal 0 L B
+T 0 5 -25 51 0 1 0 OUT Normal 0 L B
+P 2 1 0 0 -200 -200 200 -200 N
+P 2 1 0 0 -200 100 -200 -200 N
+P 2 1 0 0 200 -200 200 100 N
+P 2 1 0 0 200 100 -200 100 N
+X ADJ 1 0 -300 100 U 0 0 1 0 I
+X OUT 2 300 0 100 L 0 0 1 0 P
+X IN 3 -300 0 100 R 0 0 1 0 I
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_LM4051
+#
+DEF new_version_pedal_board-eagle-import_LM4051 U 0 40 Y Y 1 L N
+F0 "U" -100 80 70 H V L BNN
+F1 "new_version_pedal_board-eagle-import_LM4051" 100 -80 70 H V L TNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 -100 0 -50 0 N
+P 2 1 0 0 0 -100 0 -26 N
+P 2 1 0 0 50 -50 30 -70 N
+P 2 1 0 0 50 0 50 -50 N
+P 2 1 0 0 50 50 50 0 N
+P 2 1 0 0 50 50 70 70 N
+P 2 1 0 0 100 0 50 0 N
+P 3 1 0 0 -50 -50 50 0 -50 50 F
+X ADJ 1 0 -100 0 L 0 0 1 0 B
+X C 2 100 0 0 D 0 0 1 0 P
+X A 3 -100 0 0 U 0 0 1 0 P
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_MCP6021T-E_OT
+#
+DEF new_version_pedal_board-eagle-import_MCP6021T-E_OT ~ 0 40 Y Y 2 L N
+F0 "" -130 -200 70 V V L BNN
+F1 "new_version_pedal_board-eagle-import_MCP6021T-E_OT" 200 -200 70 V V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+T 0 5 135 50 0 2 0 VCC Normal 0 C B
+T 0 5 -185 50 0 2 0 VEE Normal 0 C B
+P 2 1 0 0 -200 -200 200 0 N
+P 2 1 0 0 -200 200 -200 -200 N
+P 2 1 0 0 -175 -100 -125 -100 N
+P 2 1 0 0 -175 100 -125 100 N
+P 2 1 0 0 -150 -75 -150 -125 N
+P 2 1 0 0 200 0 -200 200 N
+P 2 2 0 0 -100 -200 -100 200 N
+P 2 2 0 0 -100 200 100 200 N
+P 2 2 0 0 100 -200 -100 -200 N
+P 2 2 0 0 100 200 100 -200 N
+X OUT 1 300 0 100 L 50 0 1 0 O
+X +IN 3 -300 -100 100 R 50 0 1 0 I
+X -IN 4 -300 100 100 R 50 0 1 0 I
+X P$V- 2 0 -300 100 U 50 0 2 0 B
+X P$V+ 5 0 300 100 D 50 0 2 0 B
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_R-US_R0805
+#
+DEF new_version_pedal_board-eagle-import_R-US_R0805 R 0 40 Y Y 1 L N
+F0 "R" -150 59 59 H V L BNN
+F1 "new_version_pedal_board-eagle-import_R-US_R0805" -150 -130 59 H V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 -100 0 -85 40 N
+P 2 1 0 0 -85 40 -60 -40 N
+P 2 1 0 0 -60 -40 -35 40 N
+P 2 1 0 0 -35 40 -10 -40 N
+P 2 1 0 0 -10 -40 15 40 N
+P 2 1 0 0 15 40 40 -40 N
+P 2 1 0 0 40 -40 65 40 N
+P 2 1 0 0 65 40 90 -40 N
+P 2 1 0 0 90 -40 100 0 N
+X 1 1 -200 0 100 R 0 0 1 0 P
+X 2 2 200 0 100 L 0 0 1 0 P
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_SAMC21-XPLAINED-PRO_NO_EXT1&2&3
+#
+DEF new_version_pedal_board-eagle-import_SAMC21-XPLAINED-PRO_NO_EXT1&2&3 ~ 0 40 Y Y 1 L N
+F0 "" 1500 4600 59 H V L BNN
+F1 "new_version_pedal_board-eagle-import_SAMC21-XPLAINED-PRO_NO_EXT1&2&3" 1500 4300 59 H V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 0 0 0 7600 N
+P 2 1 0 0 0 0 3400 0 N
+P 2 1 0 0 0 7600 3400 7600 N
+P 2 1 0 0 3400 0 3400 7600 N
+X CAN0-CANH CAN-0 -200 2600 200 R 50 50 1 0 B
+X CAN1-CANL CAN-1 -200 2700 200 R 50 50 1 0 B
+X J800-0-PB02-MISO J800-0 1400 7800 200 D 50 50 1 0 B
+X J800-1-5V J800-1 1500 7800 200 D 50 50 1 0 B
+X J800-2-PB01-SCK J800-2 1600 7800 200 D 50 50 1 0 B
+X J800-3-PB00-MOSI J800-3 1700 7800 200 D 50 50 1 0 B
+X J800-4-RESETN J800-4 1800 7800 200 D 50 50 1 0 B
+X J800-5-GND J800-5 1900 7800 200 D 50 50 1 0 B
+X J8010-PB05 J801-0 3600 1500 200 L 50 50 1 0 B
+X J8011-PB31 J801-1 3600 1600 200 L 50 50 1 0 B
+X J8012-PA27 J801-2 3600 1700 200 L 50 50 1 0 B
+X J8013-PB00 J801-3 3600 1800 200 L 50 50 1 0 B
+X J8014-PB02 J801-4 3600 1900 200 L 50 50 1 0 B
+X J8015-PB01 J801-5 3600 2000 200 L 50 50 1 0 B
+X J8016-GND J801-6 3600 2100 200 L 50 50 1 0 B
+X J8017-PA03 J801-7 3600 2200 200 L 50 50 1 0 B
+X J8018-PA12 J801-8 3600 2300 200 L 50 50 1 0 B
+X J8019-PA13 J801-9 3600 2400 200 L 50 50 1 0 B
+X J802-0-RFU J802-0 -200 2000 200 R 50 50 1 0 B
+X J802-1-IOREF J802-1 -200 1900 200 R 50 50 1 0 B
+X J802-2-RESET J802-2 -200 1800 200 R 50 50 1 0 B
+X J802-3.3V J802-3 -200 1700 200 R 50 50 1 0 B
+X J802-4-5V J802-4 -200 1600 200 R 50 50 1 0 B
+X J802-5-GND J802-5 -200 1500 200 R 50 50 1 0 B
+X J802-6GND J802-6 -200 1400 200 R 50 50 1 0 B
+X J802-7-VIN J802-7 -200 1300 200 R 50 50 1 0 B
+X J803-0-PB09 J803-0 -200 1000 200 R 50 50 1 0 B
+X J803-1-PB08 J803-1 -200 900 200 R 50 50 1 0 B
+X J803-2-PA08 J803-2 -200 800 200 R 50 50 1 0 B
+X J803-3-PA09 J803-3 -200 700 200 R 50 50 1 0 B
+X J803-4-PB07 J803-4 -200 600 200 R 50 50 1 0 B
+X J803-5-PB06 J803-5 -200 500 200 R 50 50 1 0 B
+X J804-0-PA23 J804-0 3600 400 200 L 50 50 1 0 B
+X J804-1-PA22 J804-1 3600 500 200 L 50 50 1 0 B
+X J804-2-PA20 J804-2 3600 600 200 L 50 50 1 0 B
+X J804-3-PB12 J804-3 3600 700 200 L 50 50 1 0 B
+X J804-4-PA21 J804-4 3600 800 200 L 50 50 1 0 B
+X J804-5-PB13 J804-5 3600 900 200 L 50 50 1 0 B
+X J804-6-PB30 J804-6 3600 1000 200 L 50 50 1 0 B
+X J804-7-PB04 J804-7 3600 1100 200 L 50 50 1 0 B
+ENDDRAW
+ENDDEF
+#
+# new_version_pedal_board-eagle-import_T821108A1S100CEU
+#
+DEF new_version_pedal_board-eagle-import_T821108A1S100CEU J 0 40 Y Y 1 L N
+F0 "J" 650 300 59 H V L CNN
+F1 "new_version_pedal_board-eagle-import_T821108A1S100CEU" 650 200 59 H V L CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 200 100 200 -400 N
+P 2 1 0 0 200 100 600 100 N
+P 2 1 0 0 600 -400 200 -400 N
+P 2 1 0 0 600 -400 600 100 N
+X 1 1 0 0 200 R 50 50 1 0 B
+X 2 2 800 0 200 L 50 50 1 0 B
+X 3 3 0 -100 200 R 50 50 1 0 B
+X 4 4 800 -100 200 L 50 50 1 0 B
+X 5 5 0 -200 200 R 50 50 1 0 B
+X 6 6 800 -200 200 L 50 50 1 0 B
+X 7 7 0 -300 200 R 50 50 1 0 B
+X 8 8 800 -300 200 L 50 50 1 0 B
+ENDDRAW
+ENDDEF
+#
+#End Library
